@@ -10,6 +10,7 @@
 #import "MWPhoto.h"
 #import "MWPhotoProtocol.h"
 #import "MWCaptionView.h"
+#import "MWZoomingScrollView.h"
 
 // Debug Logging
 #if 0 // Set to 1 to enable debug logging
@@ -71,5 +72,16 @@
 // Navigation
 - (void)showNextPhotoAnimated:(BOOL)animated;
 - (void)showPreviousPhotoAnimated:(BOOL)animated;
+
+
+// For Customizing in chat
+@property (strong, nonatomic) NSMutableSet *visiblePages;
+
+- (MWZoomingScrollView*) getMWZoomingScrollViewToUse;
+- (void)handleMWPhotoLoadingDidEndNotification:(NSNotification *)notification;
+- (MWZoomingScrollView *)pageDisplayingPhoto:(id<MWPhoto>)photo;
+- (void)loadAdjacentPhotosIfNecessary:(id<MWPhoto>)photo;
+- (void)updateNavigation;
+- (void)tilePages;
 
 @end

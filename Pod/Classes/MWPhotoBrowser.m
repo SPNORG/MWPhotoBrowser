@@ -18,6 +18,7 @@
 static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 
 @implementation MWPhotoBrowser
+@synthesize visiblePages = _visiblePages;
 
 #pragma mark - Init
 
@@ -800,7 +801,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
             // Add new page
 			MWZoomingScrollView *page = [self dequeueRecycledPage];
 			if (!page) {
-				page = [[MWZoomingScrollView alloc] initWithPhotoBrowser:self];
+                page = [[self getMWZoomingScrollViewToUse] initWithPhotoBrowser:self];
 			}
 			[_visiblePages addObject:page];
 			[self configurePage:page forIndex:index];
@@ -1637,6 +1638,11 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         [self.progressHUD hide:YES];
     }
     self.navigationController.navigationBar.userInteractionEnabled = YES;
+}
+
+#pragma mark Customize MWZoomingScrollView
+- (MWZoomingScrollView*) getMWZoomingScrollViewToUse{
+    return [MWZoomingScrollView alloc];
 }
 
 @end

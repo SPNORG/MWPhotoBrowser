@@ -31,4 +31,10 @@
 - (BOOL)displayingVideo;
 - (void)setImageHidden:(BOOL)hidden;
 
+#pragma mark custom for SPN
+- (void)hideLoadingIndicator;
+
+@property (strong, nonatomic) MWTapDetectingImageView *photoImageView;
+@property (strong, nonatomic) UIImageView *loadingError;
+
 @end

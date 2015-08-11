@@ -19,15 +19,16 @@
     
     MWPhotoBrowser __weak *_photoBrowser;
 	MWTapDetectingView *_tapView; // for background taps
-	MWTapDetectingImageView *_photoImageView;
+
 	DACircularProgressView *_loadingIndicator;
-    UIImageView *_loadingError;
     
 }
 
 @end
 
 @implementation MWZoomingScrollView
+@synthesize photoImageView = _photoImageView;
+@synthesize loadingError = _loadingError;
 
 - (id)initWithPhotoBrowser:(MWPhotoBrowser *)browser {
     if ((self = [super init])) {

@@ -25,7 +25,7 @@
 	UIScrollView *_pagingScrollView;
 	
 	// Paging & layout
-	NSMutableSet *_visiblePages, *_recycledPages;
+	NSMutableSet *_recycledPages;
 	NSUInteger _currentPageIndex;
     NSUInteger _previousPageIndex;
     CGRect _previousLayoutBounds;
@@ -88,7 +88,6 @@
 - (void)restorePreviousNavBarAppearance:(BOOL)animated;
 
 // Paging
-- (void)tilePages;
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index;
 - (MWZoomingScrollView *)pageDisplayedAtIndex:(NSUInteger)index;
 - (MWZoomingScrollView *)pageDisplayingPhoto:(id<MWPhoto>)photo;
