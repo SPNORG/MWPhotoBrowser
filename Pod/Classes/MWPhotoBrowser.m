@@ -1540,6 +1540,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
                 return;
             }
         }
+        if ([_delegate respondsToSelector:@selector(clearOrientations)]){
+            [_delegate clearOrientations];
+        }
         // Dismiss view controller
         if ([_delegate respondsToSelector:@selector(photoBrowserDidFinishModalPresentation:)]) {
             // Call delegate method and let them dismiss us
